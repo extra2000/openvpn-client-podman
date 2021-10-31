@@ -1,0 +1,10 @@
+(block openvpn_client_pod
+    (blockinherit container)
+    (allow process process ( capability ( chown dac_override fowner fsetid kill mknod net_admin net_bind_service net_raw setfcap setgid setpcap setuid sys_chroot )))
+    (allow process user_home_t ( dir ( getattr ioctl lock open read search )))
+    (allow process user_home_t ( file ( getattr ioctl lock open read )))
+    (allow process user_home_t ( fifo_file ( getattr open read lock ioctl )))
+    (allow process user_home_t ( sock_file ( getattr open read )))
+    (allow process kernel_t ( system ( module_request )))
+    (allow process self ( netlink_route_socket ( nlmsg_write )))
+)
