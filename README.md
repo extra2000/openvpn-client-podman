@@ -63,3 +63,13 @@ Assuming the WSL2 IP address is `172.28.96.149`, execute the following powershel
 ```
 route add 192.168.123.0 mask 255.255.255.0 172.24.63.186
 ```
+
+
+## Using Rootless Podman `run` to provide VPN access to existing Podman pod
+
+To provide VPN access to existing pod (assuming the pod name is `mypod`), execute the following command:
+```
+podman run -it --rm --pod=mypod -v ./configs/client-01.ovpn:/etc/openvpn/client/client.conf:ro --privileged --security-opt label=type:openvpn_client_pod.process extra2000/openvpn-client
+```
+
+**Note**: The `--privileged` parameter is used because rootless Podman 3.4.1 seems impossible to run with `--cap-add CAP_NET_ADMIN --cap-add CAP_NET_RAW --cap-add CAP_MKNOD`.
