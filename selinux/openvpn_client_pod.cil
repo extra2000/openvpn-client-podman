@@ -7,4 +7,5 @@
     (allow process user_home_t ( sock_file ( getattr open read )))
     (allow process kernel_t ( system ( module_request )))
     (allow process self ( netlink_route_socket ( nlmsg_write )))
+    (allow process tun_tap_device_t ( chr_file ( getattr ioctl open read write )))
 )
