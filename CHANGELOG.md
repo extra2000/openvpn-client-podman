@@ -1,5 +1,17 @@
 # Changelog
 
+### [1.0.1](https://github.com/extra2000/openvpn-client-podman/compare/v1.0.0...v1.0.1) (2021-11-17)
+
+
+### Documentations
+
+* **README:** add instructions to provide VPN access to a pod ([c3c402c](https://github.com/extra2000/openvpn-client-podman/commit/c3c402c93f08504bbde17be63dc2363f4a4f5887))
+
+
+### Fixes
+
+* **selinux:** allow tun tap for rootless container ([cc309ad](https://github.com/extra2000/openvpn-client-podman/commit/cc309ad709de86e6c41213c12ed10a080753b63e))
+
 ## 1.0.0 (2021-10-31)
 
 
