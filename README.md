@@ -73,3 +73,13 @@ podman run -it --rm --pod=mypod -v ./configs/client-01.ovpn:/etc/openvpn/client/
 ```
 
 **Note**: The `--privileged` parameter is used because rootless Podman 3.4.1 seems impossible to run with `--cap-add CAP_NET_ADMIN --cap-add CAP_NET_RAW --cap-add CAP_MKNOD`.
+
+
+## Known Issues
+
+To fix error "iptables v1.8.4 (legacy): can't initialize iptables table 'nat': Table does not exist (do you need to insmod?)", try to load `ip_tables` kernel module using the following command:
+```
+sudo modprobe ip_tables
+```
+
+This usually occurs on AlmaLinux 8.5.
