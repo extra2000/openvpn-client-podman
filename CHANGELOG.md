@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.2](https://github.com/extra2000/openvpn-client-podman/compare/v1.0.1...v1.0.2) (2021-11-18)
+
+
+### Documentations
+
+* **README:** add Section "Known Issues" ([3ab0a86](https://github.com/extra2000/openvpn-client-podman/commit/3ab0a86c2b0c46f7eb25acb99098cfeb6ac27278))
+
 ### [1.0.1](https://github.com/extra2000/openvpn-client-podman/compare/v1.0.0...v1.0.1) (2021-11-17)
 
 
