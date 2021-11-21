@@ -22,7 +22,10 @@ sudo semodule -i selinux/openvpn_client_pod.cil /usr/share/udica/templates/base_
 
 ## Configurations
 
-Put your `ovpn` file into `configs/` and rename it as `client-01.ovpn`.
+Put your `ovpn` file into `configs/` and rename it as `client-01.ovpn`. Then, execute the following command to allow to be mounted into container:
+```
+chcon -R -v -t container_file_t ./configs
+```
 
 
 ## Running
