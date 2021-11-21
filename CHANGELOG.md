@@ -1,5 +1,17 @@
 # Changelog
 
+### [1.0.3](https://github.com/extra2000/openvpn-client-podman/compare/v1.0.2...v1.0.3) (2021-11-21)
+
+
+### Fixes
+
+* **selinux:** remove `user_home_t` ([173730a](https://github.com/extra2000/openvpn-client-podman/commit/173730a72eef9985636bbbe06eb6e60ffa73fdfb))
+
+
+### Documentations
+
+* **README:** add instructions to label `./configs/` directory ([dd712ce](https://github.com/extra2000/openvpn-client-podman/commit/dd712ce3e3ed5a459f168444b48720e420121b66))
+
 ### [1.0.2](https://github.com/extra2000/openvpn-client-podman/compare/v1.0.1...v1.0.2) (2021-11-18)
 
 
