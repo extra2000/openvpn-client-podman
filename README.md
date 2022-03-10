@@ -16,9 +16,16 @@ sudo podman build -t extra2000/openvpn-client .
 
 ## Load SELinux policy
 
+Create SELinux Policy:
 ```
-sudo semodule -i selinux/openvpn_client_pod.cil /usr/share/udica/templates/base_container.cil
+cp -v selinux/openvpn_client_podman.cil{.example,}
 ```
+
+Load the SELinux Policy:
+```
+sudo semodule -i selinux/openvpn_client_podman.cil /usr/share/udica/templates/base_container.cil
+```
+
 
 ## Configurations
 
