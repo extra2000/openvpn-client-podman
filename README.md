@@ -48,6 +48,18 @@ sudo podman play kube openvpn-client-pod.yaml
 ```
 
 
+## Running with Static IPv4
+
+Create a pod with static IPv4 address:
+```
+sudo podman pod create --ip 10.88.1.2 --name openvpn-client-pod
+```
+
+```
+sudo podman run -it -d --pod openvpn-client-pod --restart unless-stopped -v ./configs/client.ovpn:/etc/openvpn/client/client.conf:ro --cap-add CAP_NET_ADMIN --cap-add CAP_NET_RAW --cap-add CAP_MKNOD --security-opt label=type:openvpn_client_podman.process --name openvpn-client-pod-srv01 extra2000/openvpn-client
+```
+
+
 ## Routing VPN access to Linux host
 
 Verify that IP forwarding is enabled in the container:
