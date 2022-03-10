@@ -29,9 +29,14 @@ sudo semodule -i selinux/openvpn_client_podman.cil /usr/share/udica/templates/ba
 
 ## Configurations
 
-Put your `ovpn` file into `configs/` and rename it as `client-01.ovpn`. Then, execute the following command to allow to be mounted into container:
+Put your `ovpn` file into `configs/` and rename it as `client.ovpn`. Then, execute the following command to allow to be mounted into container:
 ```
 chcon -R -v -t container_file_t ./configs
+```
+
+Create pod file:
+```
+cp -v openvpn-client-pod.yaml{.example,}
 ```
 
 
