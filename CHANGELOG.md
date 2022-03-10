@@ -1,5 +1,25 @@
 # Changelog
 
+## [2.0.0](https://github.com/extra2000/openvpn-client-podman/compare/v1.0.3...v2.0.0) (2022-03-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* Project structure, SELinux Policy name, Pod name, and config name has changed
+
+### Code Refactoring
+
+* reorganize SELinux Policy and Pod into example ([3afbe4d](https://github.com/extra2000/openvpn-client-podman/commit/3afbe4d93faf227ee3a1c6ba8ab08196da483933))
+
+
+### Documentations
+
+* **README:** add instructions for static IPv4 ([be6442a](https://github.com/extra2000/openvpn-client-podman/commit/be6442a5aeeb16d93da27f1413b4c965f28a8b1d))
+* **README:** update config and pod names ([b7176a2](https://github.com/extra2000/openvpn-client-podman/commit/b7176a2a01c47ead31933f1251943d342a6fcd39))
+* **README:** update configs instruction ([8779708](https://github.com/extra2000/openvpn-client-podman/commit/87797083ee86438ff0acb4c3f716fdf84da10a3f))
+* **README:** update running instructions ([fa7a2ef](https://github.com/extra2000/openvpn-client-podman/commit/fa7a2ef2d0ae42292d2e16cd49aa9dda91de725a))
+* **README:** update SELinux instructions ([92b33b8](https://github.com/extra2000/openvpn-client-podman/commit/92b33b832231b44c4994684c466341742c59e2cd))
+
 ### [1.0.3](https://github.com/extra2000/openvpn-client-podman/compare/v1.0.2...v1.0.3) (2021-11-21)
 
 
