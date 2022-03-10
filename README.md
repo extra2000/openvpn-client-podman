@@ -42,8 +42,9 @@ cp -v openvpn-client-pod.yaml{.example,}
 
 ## Running
 
+Execute the following command to spawn a pod:
 ```
-sudo podman play kube pods/openvpn-client-01-pod.yaml
+sudo podman play kube openvpn-client-pod.yaml
 ```
 
 
