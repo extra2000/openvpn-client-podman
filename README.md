@@ -64,14 +64,14 @@ sudo podman run -it -d --pod openvpn-client-pod --restart unless-stopped -v ./co
 
 Verify that IP forwarding is enabled in the container:
 ```
-sudo podman exec -it openvpn-client-01-pod-srv01 sysctl -a | grep forward
+sudo podman exec -it openvpn-client-pod-srv01 sysctl -a | grep forward
 ```
 
 If not enabled, try destroy and re-create pod.
 
 Get the OpenVPN client container IP address:
 ```
-sudo podman container inspect openvpn-client-01-pod-srv01 | grep IPAddress
+sudo podman container inspect openvpn-client-pod-srv01 | grep IPAddress
 ```
 
 Assuming the IP address of the container is `10.88.0.2`, execute the following command on host:
@@ -97,7 +97,7 @@ route add 192.168.123.0 mask 255.255.255.0 172.24.63.186
 
 To provide VPN access to existing pod (assuming the pod name is `mypod`), execute the following command:
 ```
-podman run -it --rm --pod=mypod -v ./configs/client-01.ovpn:/etc/openvpn/client/client.conf:ro --privileged --security-opt label=type:openvpn_client_pod.process extra2000/openvpn-client
+podman run -it --rm --pod=mypod -v ./configs/client.ovpn:/etc/openvpn/client/client.conf:ro --privileged --security-opt label=type:openvpn_client_podman.process extra2000/openvpn-client
 ```
 
 **Note**: The `--privileged` parameter is used because rootless Podman 3.4.1 seems impossible to run with `--cap-add CAP_NET_ADMIN --cap-add CAP_NET_RAW --cap-add CAP_MKNOD`.
