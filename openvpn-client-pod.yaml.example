@@ -2,8 +2,8 @@ apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    app: openvpn-client-01-pod
-  name: openvpn-client-01-pod
+    app: openvpn-client-pod
+  name: openvpn-client-pod
 spec:
   restartPolicy: OnFailure
   hostNetwork: false
@@ -21,7 +21,7 @@ spec:
         drop:
         - CAP_AUDIT_WRITE
       seLinuxOptions:
-        type: openvpn_client_pod.process
+        type: openvpn_client_podman.process
     resources:
       requests:
         memory: 100Mi
@@ -36,4 +36,4 @@ spec:
   volumes:
   - name: config-file
     hostPath:
-      path: ./configs/client-01.ovpn
+      path: ./configs/client.ovpn

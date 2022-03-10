@@ -1,4 +1,4 @@
-(block openvpn_client_pod
+(block openvpn_client_podman
     (blockinherit container)
     (allow process process ( capability ( chown dac_override fowner fsetid kill mknod net_admin net_bind_service net_raw setfcap setgid setpcap setuid sys_chroot )))
     (allow process kernel_t ( system ( module_request )))

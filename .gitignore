@@ -1,2 +1,7 @@
 configs/*
 !configs/.gitkeep
+
+selinux/*
+!selinux/*.example
+
+openvpn-client*pod.yaml
