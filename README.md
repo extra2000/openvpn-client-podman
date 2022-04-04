@@ -138,4 +138,9 @@ To fix error "iptables v1.8.4 (legacy): can't initialize iptables table 'nat': T
 sudo modprobe ip_tables
 ```
 
+Then, create `/etc/modules-load.d/ip_tables.conf` file with the following content:
+```
+ip_tables
+```
+
 This usually occurs on AlmaLinux 8.5.
