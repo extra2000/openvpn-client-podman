@@ -55,8 +55,36 @@ Create a pod with static IPv4 address:
 sudo podman pod create --ip 10.88.1.2 --name openvpn-client-pod
 ```
 
+Spawn an OpenVPN container into the pod:
 ```
-sudo podman run -it -d --pod openvpn-client-pod --restart unless-stopped -v ./configs/client.ovpn:/etc/openvpn/client/client.conf:ro --cap-add CAP_NET_ADMIN --cap-add CAP_NET_RAW --cap-add CAP_MKNOD --security-opt label=type:openvpn_client_podman.process --name openvpn-client-pod-srv01 extra2000/openvpn-client
+sudo podman run -it -d --pod openvpn-client-pod --restart unless-stopped --sysctl net.ipv4.ip_forward=1 -v ./configs/client.ovpn:/etc/openvpn/client/client.conf:ro --cap-add CAP_NET_ADMIN --cap-add CAP_NET_RAW --cap-add CAP_MKNOD --security-opt label=type:openvpn_client_podman.process --name openvpn-client-pod-srv01 extra2000/openvpn-client
+```
+
+Generate OpenVPN container systemd script to auto-start at boot:
+```
+cd /etc/systemd/system
+sudo podman generate systemd --files --name openvpn-client-pod-srv01
+```
+
+Create `/etc/systemd/system/openvpn-ip-route.service` to auto add IP route at boot (NOTE: Change `192.168.123.0/24` to your IP range that you want to access):
+```
+[Unit]
+Description=Add IP route for host connection through OpenVPN Client Podman
+After=container-openvpn-client-pod-srv01.service
+
+[Service]
+ExecStartPre=/bin/sleep 10
+ExecStart=/usr/sbin/ip route add 192.168.123.0/24 via 10.88.1.2 dev cni-podman0
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Apply changes:
+```
+sudo systemctl daemon-reload
+sudo systemctl enable container-openvpn-client-pod-srv01.service openvpn-ip-route.service
 ```
 
 
