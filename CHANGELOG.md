@@ -1,5 +1,13 @@
 # Changelog
 
+### [2.0.1](https://github.com/extra2000/openvpn-client-podman/compare/v2.0.0...v2.0.1) (2022-04-04)
+
+
+### Documentations
+
+* **README:** add instructions to load `ip_tables` at boot ([ad21ec8](https://github.com/extra2000/openvpn-client-podman/commit/ad21ec88e05457b30d12e1dd321ed0706154f16d))
+* **README:** improve static IP with auto-start at boot ([715128f](https://github.com/extra2000/openvpn-client-podman/commit/715128fb60d03f6534054d393640c0a97732c3f0))
+
 ## [2.0.0](https://github.com/extra2000/openvpn-client-podman/compare/v1.0.3...v2.0.0) (2022-03-10)
 
 
